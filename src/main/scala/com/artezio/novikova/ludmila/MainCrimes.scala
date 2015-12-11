@@ -10,7 +10,9 @@ import org.apache.spark.{SparkContext, SparkConf}
 object MainCrimes {
   def main(args: Array[String]) {
     println("Hi, there")
-    val file = "C:\\Users\\lnovikova\\Downloads\\SacramentocrimeJanuary2006.csv"
+    val url=getClass.getResource("/SacramentocrimeJanuary2006.csv")
+    val file = url.getPath
+//    val file = "C:\\Users\\lnovikova\\Downloads\\SacramentocrimeJanuary2006.csv"
     val conf = new SparkConf().setAppName("Crimes in Sacramento districts calculation")
     conf.setMaster("local[2]")
     val sc = new SparkContext(conf)
